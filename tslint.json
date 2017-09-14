@@ -16,7 +16,6 @@
         "no-var-keyword": true,
         "no-use-before-declare": true,
         "restrict-plus-operands": true,
-        "strict-boolean-expressions": true,
         "prefer-const": true,
         "eofline": true,
         "jsdoc-format": true,
