@@ -1,0 +1,19 @@
+# http://EditorConfig.org
+root = true
+[*]
+end_of_line = lf
+insert_final_newline = true
+[src/**.{js,ts,html,styl}]
+end_of_line = lf
+insert_final_newline = true
+charset = utf-8
+indent_style = space
+indent_size = 4
+# Ignore paths
+[{dist, docs, node_modules}/**]
+charset = none
+end_of_line = none
+insert_final_newline = none
+trim_trailing_whitespace = none
+indent_style = none
+indent_size = none

@@ -1,0 +1,25 @@
+{
+  "name": "reddit2spotify",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/Entry.ts",
+  "scripts": {
+    "test": "mocha",
+    "pretest": "npm run lint & npm run build",
+    "lint": "tslint --type-check -p tsconfig.json -c tslint.json 'src/**/*.ts'",
+    "build": "tsc"
+  },
+  "author": "Jens Albert",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.16.2",
+    "typescript": "^2.5.2"
+  },
+  "devDependencies": {
+    "@types/mocha": "^2.2.43",
+    "@types/node": "^8.0.28",
+    "expect.js": "^0.3.1",
+    "mocha": "^3.5.3",
+    "tslint": "^5.7.0"
+  }
+}
