@@ -4,15 +4,17 @@
   "description": "",
   "main": "src/Entry.ts",
   "scripts": {
+    "start": "node dist/Entry.js",
+    "build": "tsc",
     "test": "mocha",
-    "pretest": "npm run lint & npm run build",
-    "lint": "tslint --type-check -p tsconfig.json -c tslint.json 'src/**/*.ts'",
-    "build": "tsc"
+    "pretest": "npm run lint && npm run build",
+    "lint": "tslint --type-check -p tsconfig.json -c tslint.json 'src/**/*.ts'"
   },
   "author": "Jens Albert",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.16.2",
+    "snoowrap": "^1.14.2",
     "typescript": "^2.5.2"
   },
   "devDependencies": {

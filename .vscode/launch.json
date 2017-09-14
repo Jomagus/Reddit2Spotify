@@ -1,0 +1,18 @@
+{
+        "version": "0.2.0",
+        "configurations": [
+        
+            {
+                "type": "node",
+                "request": "launch",
+                "name": "Launch Program",
+                "cwd": "${workspaceRoot}",
+                "preLaunchTask": "Build",
+                "outFiles": [
+                    "${workspaceRoot}\\dist\\**\\*.js"
+                ],
+                "program": "${workspaceRoot}\\src\\Entry.ts",
+                "sourceMaps": true
+            }
+        ]
+    }
