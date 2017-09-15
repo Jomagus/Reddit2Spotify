@@ -2,6 +2,12 @@ import * as Bluebird from "bluebird";
 
 import { ISpotifyConfig } from "./IConfig";
 
+/**
+ * Liefert gekapselt unsere Methoden um mit Spotify zu interagieren.
+ *
+ * @export
+ * @class Spotify
+ */
 export default class Spotify {
     private S: any;
     private Username: string;

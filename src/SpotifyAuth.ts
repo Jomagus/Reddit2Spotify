@@ -4,7 +4,7 @@ import { SpotifyConfig } from "./Config";
 
 const SpotifyWebApi = require("spotify-web-api-node");
 
-const RedirectUrl = "http://localhost:8888/callback";
+const RedirectUrl = "http://spotify.jomagus.de/auth/";
 
 const S = new SpotifyWebApi({
     clientId: SpotifyConfig.clientId,
@@ -14,7 +14,7 @@ const S = new SpotifyWebApi({
 
 const AuthStep1 = async () => {
     const Scopes = ["playlist-read-private", "playlist-modify-private"];
-    const State = "Banane";
+    const State = SpotifyConfig.State ? SpotifyConfig.State : "";
 
     const AuthorizeUrl = S.createAuthorizeURL(Scopes, State);
 
@@ -34,6 +34,7 @@ const AuthStep1 = async () => {
 const ListPlaylists = async () => {
     S.getUserPlaylists(SpotifyConfig.Username)
         .then((Data) => {
+            console.log("Suche dir die Id deiner Playlist heraus und kopiere diese nach SpotifyConfig[\"PlaylistId\"]");
             console.log();
             Data.body.items.forEach(({ id, name }) => {
                 console.log(`Name:${name}\nId: ${id}\n\n`);
@@ -47,10 +48,7 @@ const Auth = async () => {
     const Code = await AuthStep1();
     const Data = await S.authorizationCodeGrant(Code);
 
-    console.log("The token expires in " + Data.body["expires_in"]);
-    console.log("The access token is " + Data.body["access_token"]);
-    console.log("The refresh token is " + Data.body["refresh_token"]);
-    console.log();
+    console.log("\nKopiere dieses Token in SpotifyConfig[\"refresh_token\"]:\n\n");
     console.log(Data.body["refresh_token"]);
     console.log();
 

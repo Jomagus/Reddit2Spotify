@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Reddit2Spotify Auth Helper</title>
+</head>
+
+<body>
+    <div>State: <span id="StateSpan"></span></div>
+    <div>Code: <span id="CodeSpan"></span></div>
+</body>
+<script>
+    var Url = new URL(location.href);
+    document.getElementById("StateSpan").innerHTML = Url.searchParams.get("state");
+    document.getElementById("CodeSpan").innerHTML = Url.searchParams.get("code");
+
+</script>
+
+</html>

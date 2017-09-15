@@ -11,6 +11,7 @@ interface ISpotifyConfig {
     refresh_token: string;
     PlaylistId: string;
     Username: string;
+    State?: string;
 }
 
 export { IRedditConfig, ISpotifyConfig };
