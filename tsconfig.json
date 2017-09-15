@@ -1,24 +1,26 @@
 {
-    "compilerOptions": {
-      "target": "es5",
-      "module": "commonjs",
-      "lib": ["es2015"],
-      "outDir": "dist",
-      "rootDir": "src",
-      "strictNullChecks": true,
-      "removeComments": true,
-      "noUnusedLocals": true,
-      "noUnusedParameters": true,
-      "moduleResolution": "node",
-      "sourceMap": true,
-      "inlineSources": true,
-      "types": ["node", "mocha"]
-    },
-    "include": [
-      "src/**/*"
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "lib": [
+      "es2015"
     ],
-    "exclude": [
-      "node_modules"
+    "outDir": "dist",
+    "rootDir": "src",
+    "strictNullChecks": true,
+    "removeComments": true,
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "inlineSources": true,
+    "types": [
+      "node",
+      "mocha"
     ]
-  }
-  
+  },
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

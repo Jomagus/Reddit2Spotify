@@ -13,10 +13,10 @@
   "author": "Jens Albert",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.16.2",
     "bluebird": "^3.5.0",
     "lodash": "^4.17.4",
     "snoowrap": "^1.14.2",
+    "spotify-web-api-node": "^2.5.0",
     "typescript": "^2.5.2"
   },
   "devDependencies": {

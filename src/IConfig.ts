@@ -5,4 +5,9 @@ interface IRedditConfig {
     password: string;
 }
 
-export { IRedditConfig };
+interface ISpotifyConfig {
+    clientId: string;
+    clientSecret: string;
+}
+
+export { IRedditConfig, ISpotifyConfig };
