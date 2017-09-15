@@ -42,8 +42,6 @@ const ListPlaylists = async () => {
         });
 };
 
-// TODO: Playlist listing für auswahl der gewünschten Id
-
 const Auth = async () => {
     const Code = await AuthStep1();
     const Data = await S.authorizationCodeGrant(Code);

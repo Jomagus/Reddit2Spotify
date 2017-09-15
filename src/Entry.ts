@@ -1,5 +1,5 @@
 import * as Bluebird from "bluebird";
-import { compact } from "lodash";
+import { compact, difference } from "lodash";
 
 import Reddit from "./Reddit";
 import Spotify from "./Spotify";
@@ -15,9 +15,13 @@ const Main = async () => {
         ([Title, Artist, Year]) => SpotifyConnector.SearchTrack(Title, Artist, Year)
     );
 
+    const InPlayList = SpotifyConnector.GetPlayListTracks(SpotifyConfig.PlaylistId);
+
     Bluebird.all(SpotifyUriList)
         .then(compact)
+        .then(async (NewUris) => difference(NewUris, await InPlayList))
         .then((Tracks) => {
+            if (Tracks.length === 0) return; // Keine neuen Tracks
             SpotifyConnector.AddToPlaylist(SpotifyConfig.PlaylistId, Tracks);
         });
 };
