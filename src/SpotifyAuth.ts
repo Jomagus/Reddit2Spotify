@@ -12,6 +12,7 @@ const S = new SpotifyWebApi({
     redirectUri: RedirectUrl,
 });
 
+// Generiert AutorizeURL
 const AuthStep1 = async () => {
     const Scopes = ["playlist-read-private", "playlist-modify-private"];
     const State = SpotifyConfig.State ? SpotifyConfig.State : "";
@@ -31,6 +32,7 @@ const AuthStep1 = async () => {
     });
 };
 
+// Generiert Liste aller Playlists mit IDs
 const ListPlaylists = async () => {
     S.getUserPlaylists(SpotifyConfig.Username)
         .then((Data) => {
@@ -42,6 +44,7 @@ const ListPlaylists = async () => {
         });
 };
 
+// Main Methode welche Auth koordiniert
 const Auth = async () => {
     const Code = await AuthStep1();
     const Data = await S.authorizationCodeGrant(Code);

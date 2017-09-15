@@ -22,18 +22,38 @@ export default class Reddit {
         });
     }
 
+    /**
+     * Liefert die Hot Titles aus "/r/ListenToThis" geparst.
+     *
+     * @returns {(Bluebird<[string, string, string | undefined][]>)}Array mit Hot Posts sind Tripel der Form `[Title, Artist, Year]`
+     * @memberof Reddit
+     */
     GetSongList(): Bluebird<[string, string, string | undefined][]> {
         return this.GetPostTitles("listentothis").then((Titles) => {
             return Titles.map(this.ParseTitle);
         }).then(compact);
     }
 
+    /**
+     * Liefert die Titel der Hot Posts aus einem Subreddit.
+     *
+     * @param {string} Subreddit Das Subreddit das durchsucht werden soll.
+     * @returns {Bluebird<string[]>} Array mit Titeln der Hot Posts.
+     * @memberof Reddit
+     */
     GetPostTitles(Subreddit: string): Bluebird<string[]> {
         return this.R.getSubreddit(Subreddit)
             .getHot()
             .map(post => post.title);
     }
 
+    /**
+     * Parsed einen Titel der Form des "/r/ListenToThis" Subreddits.
+     *
+     * @param {string} Raw Roher Titel
+     * @returns {([string, string, string | undefined] | undefined)} Tripel der Form `[Title, Artist, Year]`
+     * @memberof Reddit
+     */
     ParseTitle(Raw: string): [string, string, string | undefined] | undefined {
         const RegEx = /([^-]+)-+([^\[]+)[^(]*(\(\d{4}\))?/;
         const Ret = RegEx.exec(Raw);
