@@ -8,6 +8,9 @@ interface IRedditConfig {
 interface ISpotifyConfig {
     clientId: string;
     clientSecret: string;
+    refresh_token: string;
+    PlaylistId: string;
+    Username: string;
 }
 
 export { IRedditConfig, ISpotifyConfig };

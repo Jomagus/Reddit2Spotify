@@ -8,7 +8,9 @@
     "build": "tsc",
     "test": "mocha",
     "pretest": "npm run lint && npm run build",
-    "lint": "tslint --type-check -p tsconfig.json -c tslint.json 'src/**/*.ts'"
+    "lint": "tslint --type-check -p tsconfig.json -c tslint.json 'src/**/*.ts'",
+    "auth": "node dist/SpotifyAuth.js",
+    "preauth": "npm run build"
   },
   "author": "Jens Albert",
   "license": "ISC",
